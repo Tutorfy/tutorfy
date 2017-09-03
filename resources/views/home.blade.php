@@ -18,7 +18,7 @@
     <div class="col-lg-10 col-md-9">
         <div class="card mb-2-5">
             <div class="card-block">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-9">
                         <h4 class="card-title">
                             <div class="card-profileimg">
@@ -30,7 +30,7 @@
                         <a href="#" class="btn btn-link">Favourite This Tutor</a>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 ">
                         <ul class="list-group">
                             <li class="list-group-item"><i class="list-group-icon far fa-fw fa-map-marker"></i>&nbsp;Sydney</li>
                             <li class="list-group-item"><i class="list-group-icon far fa-fw fa-graduation-cap"></i>&nbsp;Bachelor Degree</li>
@@ -42,7 +42,7 @@
         </div>
         <div class="card mb-2-5">
             <div class="card-block">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-9">
                         <h4 class="card-title">
                             <div class="card-profileimg">
@@ -66,7 +66,7 @@
         </div>
         <div class="card mb-2-5">
             <div class="card-block">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-9">
                         <h4 class="card-title">
                             <div class="card-profileimg">
