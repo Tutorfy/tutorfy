@@ -10,8 +10,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Bootstrap update to s3 -->
+    <!-- Bootstrap and Font-awesome update to s3 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cloudfront.schoolbytes.education/assets/admin_v2/css/font-awesome-light.css">
+    <link rel="stylesheet" href="https://cloudfront.schoolbytes.education/assets/admin_v2/css/font-awesome-regular.css">
+    <link rel="stylesheet" href="https://cloudfront.schoolbytes.education/assets/admin_v2/css/font-awesome-solid.css">
+    <link rel="stylesheet" href="https://cloudfront.schoolbytes.education/assets/admin_v2/css/font-awesome-core.css">
     <style>
 
         html {
@@ -37,15 +41,25 @@
             color: #E74C3C;
         }
         .mb-2-5 {
-            margin-bottom: .80rem !important;
-        }
-        .card .card-button-group {
-            bottom: 0;
-            position: absolute;
+            margin-bottom: .90rem !important;
         }
         .navbar {
             padding: .5rem 0;
         }
+        .card-profileimg {
+          margin-right: 10px;
+          width: 48px;
+          display: inline-block;
+          height: 48px;
+        }
+        .round {
+          border-radius: 2rem;
+        }
+        .list-group-icon {
+  display:inline;
+  color: #636c72!important
+
+}
     </style>
   </head>
 </head>
@@ -61,12 +75,6 @@
           <a class="navbar-brand" href="#">Tutorfy</a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }}
