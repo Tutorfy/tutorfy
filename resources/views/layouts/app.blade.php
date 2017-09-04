@@ -52,6 +52,9 @@
         li.profile-card:last-child .card {
           border-bottom: none;
         }
+        .login-card {
+          border: none !important;
+        }
         .card-profileimg {
           margin-right: 10px;
           width: 48px;
@@ -59,11 +62,18 @@
           height: 48px;
         }
         .text-muted-nm {
+          margin: 0;
+        }
+        .text-muted-sm {
+          margin-top: 0;
           color: #636c72!important;
-          margin-bottom: 0;
+          margin-bottom: .5rem;
         }
         .nav {
-          margin-top: 1.75rem;
+          margin-top: 1.80rem;
+        }
+        .list-group-item {
+          padding: .75rem .80rem !important;
         }
         .card {
           border: none;
