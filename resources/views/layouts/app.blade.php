@@ -23,7 +23,7 @@
           min-height: 100%;
         }
         body {
-            background-color: rgb(232, 240, 250);
+            background-color: #fff;
           /* Margin bottom by footer height */
           margin-bottom: 60px;
         }
@@ -31,7 +31,7 @@
           position: absolute;
           bottom: 0;
           width: 100%;
-          background-color: rgb(232, 240, 250);
+          background-color: transparent;
         }
         .container .text-muted {
             margin: 20px 0;
@@ -46,18 +46,38 @@
         .navbar {
             padding: .5rem 0;
         }
+        .nav-link {
+          color: #292b2c;
+        }
+        li.profile-card:last-child .card {
+          border-bottom: none;
+        }
         .card-profileimg {
           margin-right: 10px;
           width: 48px;
           display: inline-block;
           height: 48px;
         }
+        .text-muted-nm {
+          color: #636c72!important;
+          margin-bottom: 0;
+        }
+        .nav {
+          margin-top: 1.75rem;
+        }
+        .card {
+          border: none;
+          border-radius: 0;
+          border-bottom: 1px solid rgba(0,0,0,.15);
+          margin-top: .45rem !important;
+          padding-bottom: .45rem !important;
+          margin-bottom: 0 !important;
+        }
         .round {
-          border-radius: 2rem;
+          border-radius: 49.9%;
         }
         .list-group-icon {
   display:inline;
-  color: #636c72!important
 
 }
     </style>
