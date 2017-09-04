@@ -1,95 +1,228 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+@section('content')
+<div class="col-lg-2 col-md-3">
+    <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+            <a class="nav-link active" href="#"><i class="far fa-fw fa-search"></i>&nbsp;Search</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="#"><i class="far fa-fw fa-star"></i>&nbsp;Favourites</a>
+        </li>
+    </ul>   
+</div>
+<div class="col-lg-10 col-md-9">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group mb-0">
+                <label for="subjectSearchField">Subjects</label>
+                <input type="text" class="form-control" id="subjectSearchField" aria-describedby="subject search field">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group mb-0">
+                <label for="areaSearchField">Location</label>
+                <input type="text" class="form-control" id="areaSearchField" aria-describedby="area search field">
+            </div>
+        </div>
+    </div>
+    <ul class="clearfix profile-cards list-unstyled">
+        <li class="profile-card">
+        <div class="card mb-2-5">
+            <div class="card-block">
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <h4 class="card-title">
+                            <div class="card-profileimg">
+                                <img src="https://scontent-syd2-1.xx.fbcdn.net/v/t1.0-9/11666208_884964048217239_6010246694004036225_n.jpg?oh=6a25c871b997f5547c51f32f74c58940&oe=5A5CABED" class="round img-fluid">
+                            </div>Jamieson Keevers
+                        </h4>
+                        <ul class="profile-rating list-inline list-unstyled">
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fal fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fal fa-circle"></i>
+                            </li>
+                        </ul>
+                        <p class="card-text text-muted-sm">Maths / Geography</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet ante ut purus viverra molestie in ac leo. Ut blandit quam eget est posuere, eget convallis odio accumsan.</p>
+                        <div class="card-button-group">
+                        <a class="btn btn-primary" href="#" role="button">View Profile</a>
+                        <a href="#" class="btn btn-link">Favourite This Tutor</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 ">
+                        <ul class="list-group text-muted">
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-map-marker"></i>&nbsp;Sydney</li>
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-graduation-cap"></i>&nbsp;Bachelor Degree</li>
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-dollar-sign"></i>&nbsp;45/Hour</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+        </li>
+        <li class="profile-card">
+        <div class="card mb-2-5">
+            <div class="card-block">
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <h4 class="card-title">
+                            <div class="card-profileimg">
+                                <img src="https://scontent-syd2-1.xx.fbcdn.net/v/t31.0-8/11133989_594001374076228_8921485902932236639_o.jpg?oh=c03359504b17c22906fd9f8b5ed8119b&oe=5A1977DB" class="round img-fluid">
+                            </div>Ethan Mitchell</h4>
+                        <ul class="profile-rating list-inline list-unstyled">
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fal fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fal fa-circle"></i>
+                            </li>
+                        </ul>
+                        <p class="card-text text-muted-sm">Maths / Geography</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet ante ut purus viverra molestie in ac leo. Ut blandit quam eget est posuere, eget convallis odio accumsan.</p>
+                        <div class="card-button-group">
+                        <a class="btn btn-primary" href="#" role="button">View Profile</a>
+                        <a href="#" class="btn btn-link">Favourite This Tutor</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="list-group text-muted">
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-map-marker"></i>&nbsp;Sydney</li>
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-graduation-cap"></i>&nbsp;Bachelor Degree</li>
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-dollar-sign"></i>&nbsp;45/Hour</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        <li class="profile-card">
+        <div class="card mb-2-5">
+            <div class="card-block">
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <h4 class="card-title">
+                            <div class="card-profileimg">
+                                <img src="https://scontent-syd2-1.xx.fbcdn.net/v/t31.0-8/17159181_1424406024270337_8682811423908150291_o.jpg?oh=6f01dd825df2dfdc7c3d2281a968ec67&oe=5A1BCC93" class="round img-fluid">
+                            </div>Blake Garrett</h4>
+                        <ul class="profile-rating list-inline list-unstyled">
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                        </ul>
+                        <p class="card-text text-muted-sm">Maths / Geography</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet ante ut purus viverra molestie in ac leo. Ut blandit quam eget est posuere, eget convallis odio accumsan.</p>
+                        <div class="card-button-group">
+                        <a class="btn btn-primary" href="#" role="button">View Profile</a>
+                        <a href="#" class="btn btn-link">Favourite This Tutor</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="list-group text-muted">
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-map-marker"></i>&nbsp;Sydney</li>
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-graduation-cap"></i>&nbsp;Bachelor Degree</li>
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-dollar-sign"></i>&nbsp;45/Hour</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+        <li class="profile-card">
+        <div class="card mb-2-5">
+            <div class="card-block">
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <h4 class="card-title">
+                            <div class="card-profileimg">
+                                <img src="https://scontent-syd2-1.xx.fbcdn.net/v/t31.0-8/340984_257957224248803_991986586_o.jpg?oh=584fdf07a8913cd27de7e1b2bd645bd7&oe=5A13C7B5" class="round img-fluid">
+                            </div>Mitchell Dunn</h4>
+                        <ul class="profile-rating list-inline list-unstyled">
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <i class="fal fa-circle"></i>
+                            </li>
+                        </ul>
+                        <p class="card-text text-muted-sm">Maths / Geography</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet ante ut purus viverra molestie in ac leo. Ut blandit quam eget est posuere, eget convallis odio accumsan.</p>
+                        <div class="card-button-group">
+                        <a class="btn btn-primary" href="#" role="button">View Profile</a>
+                        <a href="#" class="btn btn-link">Favourite This Tutor</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="list-group text-muted">
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-map-marker"></i>&nbsp;Sydney</li>
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-graduation-cap"></i>&nbsp;Bachelor Degree</li>
+                            <li class="list-group-item"><i class="list-group-icon far fa-fw fa-dollar-sign"></i>&nbsp;45/Hour</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </li>
+    </ul>
+    <div class="row justify-content-center">
+        <nav aria-label="tutor pagination">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+@endsection

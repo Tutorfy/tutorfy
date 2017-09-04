@@ -27,6 +27,20 @@
           /* Margin bottom by footer height */
           margin-bottom: 60px;
         }
+        .search-card {
+          border-bottom: 0 !important;
+          margin: 0;
+          padding-bottom: 0 !important;
+        }
+        .search-card .card-block {
+          padding-bottom: 0;
+        }
+        .nav {
+          margin-top: 2rem;
+        }
+        .bg-custom {
+            background-color: black;
+        }
         .footer {
           position: absolute;
           bottom: 0;
@@ -36,6 +50,9 @@
         .container .text-muted {
             margin: 20px 0;
         }
+        .profile-card .card .card-block {
+          padding: 1.75rem .6rem;
+        }
         .help-block {
             width: 100%;
             color: #E74C3C;
@@ -44,17 +61,38 @@
             margin-bottom: .90rem !important;
         }
         .navbar {
-            padding: .5rem 0;
+            padding: .5rem 0 0;
         }
         .nav-link {
-          color: #292b2c;
+            color: #292b2c;
+            display: block;
+            padding: .4em 1em;
         }
         li.profile-card:last-child .card {
           border-bottom: none;
         }
-        .login-card {
-          border: none !important;
+        ul.profile-rating {
+          top: 34px;
+          left: 74px;
+          font-size: 10px;
+          position:absolute;
         }
+        ul.profile-rating li {
+          display: inline;
+          color: #FFB74D;
+        }
+
+        .login-card {
+            border: none !important;
+        }
+        .bg-custom {
+            background: #E44D26;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #F16529, #E44D26);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #F16529, #E44D26); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+
         .card-profileimg {
           margin-right: 10px;
           width: 48px;
@@ -69,9 +107,6 @@
           color: #636c72!important;
           margin-bottom: .5rem;
         }
-        .nav {
-          margin-top: 1.80rem;
-        }
         .list-group-item {
           padding: .75rem .80rem !important;
         }
@@ -79,58 +114,69 @@
           border: none;
           border-radius: 0;
           border-bottom: 1px solid rgba(0,0,0,.15);
-          margin-top: .45rem !important;
-          padding-bottom: .45rem !important;
           margin-bottom: 0 !important;
         }
         .round {
           border-radius: 49.9%;
         }
+        .login-card .card-header {
+            border-radius: 0;
+            background-color: transparent;
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
         .list-group-icon {
-  display:inline;
-
-}
+            display:inline;
+        }
     </style>
   </head>
 </head>
 <body>
-    <div class="container">
-        @guest
-
-        @else
-        <nav class="navbar navbar-toggleable-md navbar-light">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-toggleable-md navbar-light">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="#">Tutorfy</a>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <a class="navbar-brand" href="/">Tutorfy</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        @guest
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('register') ? 'active' : '' }}" href="/register"><i class="fal fa-user-plus fa-fw"></i>&nbsp;Create Account</a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('login') ? 'active' : '' }}" href="/login"><i class="fal fa-sign-in fa-fw"></i>&nbsp;Log In</a>
+            </li> 
+        @else
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }}
+            </a>
+            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    Logout
                 </a>
-                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </div>
+        </li>
         @endguest
-
-        @yield('content')
+        </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="{{ Request::is('register') || Request::is('login') ? 'justify-content-center align-items-center' : '' }} row" style="margin-top: 20px;">
+            @yield('content')
+        </div>
     </div>
 
     <footer class="footer">
         <div class="container">
-            <p class="text-muted">Tutorfy</p>
+            <p class="text-muted"><i class="fal fa-copyright"></i>&nbsp;Tutorfy {{ date('Y') }}</p>
         </div>
     </footer>
 
